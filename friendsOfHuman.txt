@@ -1,0 +1,6 @@
+cat
+dog
+homo
+horse 
+camel 
+donkey
