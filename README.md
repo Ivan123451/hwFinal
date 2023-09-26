@@ -157,6 +157,46 @@ VALUES ('Хомо', '2022-12-11', 'вверх', 3),
 ('Бурс', '2021-02-10', "вниз", 3),  
 
 
+CREATE TABLE horses 
+(       
+    Id INT AUTO_INCREMENT PRIMARY KEY, 
+    Name VARCHAR(20), 
+    Birthday DATE,
+    Commands VARCHAR(50),
+    Genus_id int,
+    Foreign KEY (Genus_id) REFERENCES packed_animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+INSERT INTO horses (Name, Birthday, Commands, Genus_id)
+VALUES ('Первый', '2000-01-12', 'шагом', 1),
+('Мощьный', '2012-03-12', "хоп", 1),  
+
+CREATE TABLE donkeys 
+(       
+    Id INT AUTO_INCREMENT PRIMARY KEY, 
+    Name VARCHAR(20), 
+    Birthday DATE,
+    Commands VARCHAR(50),
+    Genus_id int,
+    Foreign KEY (Genus_id) REFERENCES packed_animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+INSERT INTO donkeys (Name, Birthday, Commands, Genus_id)
+VALUES ('ИА', '2012-03-10', "ииии", 2),
+('ИАИА', '2010-03-12', "коко", 2),  
+
+
+CREATE TABLE camels 
+(       
+    Id INT AUTO_INCREMENT PRIMARY KEY, 
+    Name VARCHAR(20), 
+    Birthday DATE,
+    Commands VARCHAR(50),
+    Genus_id int,
+    Foreign KEY (Genus_id) REFERENCES packed_animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+INSERT INTO camels (Name, Birthday, Commands, Genus_id)
+VALUES ('Грифон', '2012-05-11', 'за мной', 3),
+('Карл', '2015-04-02', "стой", 3),  
+('Мудрый', '2012-07-10', "вперед", 3), 
 
 
 10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
