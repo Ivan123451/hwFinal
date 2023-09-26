@@ -115,6 +115,46 @@ VALUES ('Кошки', 2),
 9. Заполнить низкоуровневые таблицы именами(животных), командами
 которые они выполняют и датами рождения
 
+CREATE TABLE cats 
+(       
+    Id INT AUTO_INCREMENT PRIMARY KEY, 
+    Name VARCHAR(20), 
+    Birthday DATE,
+    Commands VARCHAR(50),
+    Genus_id int,
+    Foreign KEY (Genus_id) REFERENCES home_animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+INSERT INTO cats (Name, Birthday, Commands, Genus_id)
+VALUES ('Мурка', '2019-05-01', 'кис-кис', 1),
+('Яшка', '2018-03-02', "мур-мур", 1),  
+('Рыжик', '2020-02-01', "вперед", 1); 
+
+CREATE TABLE dogs 
+(       
+    Id INT AUTO_INCREMENT PRIMARY KEY, 
+    Name VARCHAR(20), 
+    Birthday DATE,
+    Commands VARCHAR(50),
+    Genus_id int,
+    Foreign KEY (Genus_id) REFERENCES home_animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+INSERT INTO dogs (Name, Birthday, Commands, Genus_id)
+VALUES ('Шарик', '2021-03-03', 'лежать', 2),
+('Бобик', '2020-02-02', "лапу", 2),  
+
+CREATE TABLE hamsters 
+(       
+    Id INT AUTO_INCREMENT PRIMARY KEY, 
+    Name VARCHAR(20), 
+    Birthday DATE,
+    Commands VARCHAR(50),
+    Genus_id int,
+    Foreign KEY (Genus_id) REFERENCES home_animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+INSERT INTO hamsters (Name, Birthday, Commands, Genus_id)
+VALUES ('Хомо', '2022-12-11', 'вверх', 3),
+('Бурс', '2021-02-10', "вниз", 3),  
 
 
 
