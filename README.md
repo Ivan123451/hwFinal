@@ -31,16 +31,20 @@
 3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
 из этого репозитория.
 
+sudo docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=12345 -d mysql
+sudo apt install mysql-server
 
 
 4. Установить и удалить deb-пакет с помощью dpkg.
 
+sudo apt-get install apache2 
+sudo apt-get remove apache2
 
 
 
 5. Выложить историю команд в терминале ubuntu
 
-
+см выше
 
 
 6. Нарисовать диаграмму, в которой есть класс родительский класс, домашние
