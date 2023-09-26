@@ -53,6 +53,7 @@ sudo apt-get remove apache2
 войдут: Лошади, верблюды и ослы).
 
 
+![image](https://github.com/Ivan123451/hwFinal/assets/122518106/08a5f5bc-aeaa-42f0-88e0-bf5049f1832f)
 
 
 7. В подключенном MySQL репозитории создать базу данных “Друзья
