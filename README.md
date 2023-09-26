@@ -31,8 +31,10 @@
 3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
 из этого репозитория.
 
-sudo docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=12345 -d mysql
-sudo apt install mysql-server
+sudo docker run -h systemHostName --name some-mysql -e MYSQL_ROOT_PASSWORD=my123 -d mysql
+
+sudo apt-get install mysql-server
+
 
 
 4. Установить и удалить deb-пакет с помощью dpkg.
@@ -57,13 +59,55 @@ sudo apt-get remove apache2
 
 
 7. В подключенном MySQL репозитории создать базу данных “Друзья
-человека”
+человека
 
+вхожу в контейнер
+sudo docker exec -it some-mysql bash 
+mysql -u root -p
+ввожу пароль 12345
 
-
-
+создаем БД 
+CREATE DATABASE Human_friends;
 
 8. Создать таблицы с иерархией из диаграммы в БД
+
+USE Human_friends;
+CREATE TABLE all_animal_class
+(
+	Id INT AUTO_INCREMENT PRIMARY KEY, 
+	Class_name VARCHAR(40)
+);
+
+INSERT INTO all_animal_class (Class_name)
+VALUES ('вьючные'),
+('домашние');  
+
+
+CREATE TABLE packed_animals
+(
+	  Id INT AUTO_INCREMENT PRIMARY KEY,
+    Genus_name VARCHAR (20),
+    Class_id INT,
+    FOREIGN KEY (Class_id) REFERENCES animal_classes (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+INSERT INTO packed_animals (Genus_name, Class_id)
+VALUES ('Лошади', 1),
+('Ослы', 1),  
+('Верблюды', 1); 
+    
+CREATE TABLE home_animals
+(
+	  Id INT AUTO_INCREMENT PRIMARY KEY,
+    Genus_name VARCHAR (20),
+    Class_id INT,
+    FOREIGN KEY (Class_id) REFERENCES animal_classes (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+INSERT INTO home_animals (Genus_name, Class_id)
+VALUES ('Кошки', 2),
+('Собаки', 2),  
+('Хомяки', 2); 
 
 
 
